@@ -21,6 +21,17 @@
 # derived classes can use it and are identified by an _ whilst Private can only be used by the class itself and not
 # derived classes and are signified by __ .
 
+# It is possible to overide the methods and attributes of base classes in derived classes. Super() returns control to the
+# base class again rather than the derived class.
+
+# In the diamond problem, ordering is important and primacy of ordering and method resolution order gives priorities.
+
+# Overload refers to using special operators for new cases (addition is an example of this) and allows objects
+# of a class to interact with one another
+
+# Abstract Base Class ensures consistancy across different classes. This can be instantiated itself and also
+# prevents derived classes from being created without it
+
 ### Exercise One
 
 # Write and object oriented program that performs the following tasks:
@@ -138,3 +149,24 @@ class Chair(Furniture):
 
 chair = Chair()
 chair.updateWood("Oak")
+
+### Exercise Five
+
+# Create a class called Square and perform the following tasks -
+# (i) Create two objects for this class squareOne and squareTwo
+# (ii) Find the result of side of squareOne to the power of side of squareTwo
+# Example: If squareOne has length of 2cm each side and squareTwo has a length of 4cm each side, squareOne **
+# squareTwo should return 16, which is 2 to the power of 4.
+# Hint: While performing SquareOne ** SquareTwo, you need to overload __pow__() method
+
+class Square:
+    sides = 4
+    def __init__(self, length):
+        self.length = length
+
+    def __pow__(SquareOne, squareTwo):
+        return(SquareOne.length ** squareTwo.length)
+
+squareOne = Square(2)
+squareTwo = Square(4)
+print("The result of the side of Sqaure one to the power of Square two is", squareOne ** squareTwo)
